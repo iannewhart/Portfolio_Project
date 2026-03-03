@@ -1,0 +1,163 @@
+/* ── Page layout ── */
+.home-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    background-color: hsl(32.73deg 17.46% 87.65%);
+}
+
+.flex-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    gap: 40px;
+}
+
+.column {
+    flex: 1;
+    padding: 0 20px;
+}
+
+.branding-title {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.branding-description, .column p {
+    font-size: 16px;
+    max-width: 500px;
+}
+
+/* ── Main video carousel ── */
+.video-carousel {
+    width: 100%;
+    max-width: 1400px;
+    margin: 40px auto 0 auto;
+    padding: 0 20px;
+    position: relative;
+    box-sizing: border-box;
+}
+.carousel-outer {
+    position: relative;
+    overflow: hidden;
+    max-width: 1400px;
+    margin: 40px auto 0 auto;
+}
+/* Fade left and right edges only on video carousel */
+.carousel-outer::before,
+.carousel-outer::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    width: 150px;
+    height: 100%;
+    z-index: 2;
+    pointer-events: none;
+}
+
+.carousel-outer::before {
+    left: 0;
+    background: linear-gradient(to right, hsl(32.73deg 17.46% 87.65%) 0%, transparent 100%);
+}
+
+.carousel-outer::after {
+    right: 0;
+    background: linear-gradient(to left, hsl(32.73deg 17.46% 87.65%) 0%, transparent 100%);
+}
+
+/* Allow side videos to peek out */
+.video-carousel .slick-list {
+    overflow: visible;
+    position: relative;
+}
+
+.video-carousel .slick-slide {
+    padding: 0 12px;
+    opacity: 0.4;
+    transition: opacity 300ms ease, transform 300ms ease;
+    box-sizing: border-box;
+    position: relative;
+}
+
+.video-carousel .slick-center {
+    opacity: 1 !important;
+}
+
+/* ── Video frame ── */
+.videoFrame {
+    position: relative;
+    width: 100%;
+    padding-top: 56.25%;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.videoFrame iframe {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.carousel-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1000;
+    background: rgba(0, 0, 0, 0.45);
+    border: none;
+    border-radius: 50%;
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.prev-arrow {
+    left: 10px;
+}
+
+.next-arrow {
+    right: 10px;
+}
+
+/* ── Thumbnail strip (completely separate from video carousel) ── */
+.thumbnail-strip {
+    width: 100%;
+    max-width: 1400px;
+    margin: 12px auto 40px auto;
+    padding: 0 20px;
+    box-sizing: border-box;
+}
+
+.thumbnail-strip .slick-list {
+    overflow: hidden;
+}
+
+.thumbnail-strip .slick-slide {
+    padding: 0 4px;
+    box-sizing: border-box;
+    opacity: 1;
+    transition: opacity 300ms ease;
+}
+
+.thumbnail-strip .slick-slide img {
+    width: auto;
+    height: auto;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    border-radius: 6px;
+    cursor: pointer;
+    border-bottom: 3px solid transparent;
+    transition: border-color 300ms ease;
+}
+
+.thumbnail-strip .slick-current img {
+    border-bottom: 3px solid #333;
+}

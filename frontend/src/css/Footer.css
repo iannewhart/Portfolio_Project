@@ -5,10 +5,8 @@
     padding: 1em;
     background-color: hsl(32.73deg 17.46% 87.65%);
     color: #747B46;
-    position:absolute;
-    left:0;
-    bottom:0;
-    right:0;
+    width: 100%;
+    margin-top: auto;
 }
 
 .logo {

@@ -4,7 +4,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
 import {NextArrow, PrevArrow} from "./carouselarrows";
-function VideoComponent() {
+function VideoComponent({ style }) {
     const [videoList, setVideoList] = useState([]);
     const [mainVideoIndex , setMainVideoIndex] = useState(0)
     const playerRefs = useRef([]);
@@ -26,17 +26,27 @@ function VideoComponent() {
             oldPlayer.pause();
         }
     };
+    const thumbSettings = {
+        slidesToShow: 4,
+        swipeToSlide: true,
+        focusOnSelect: true,
+        arrows: false,
+        variableWidth: true,
+
+    }
     const settings = {
         arrows: true,
         swipe: false,
         autoplay: false,
         infinite: true,
+        nextArrow: <NextArrow />,
+        prevArrow: <PrevArrow />,
         speed: 500,
         slidesToShow: 1,
         slidesToScroll: 1,
         centerMode: true,
         overflow: false,
-        // centerPadding: "140px",   // <-- MUST be a string
+        centerPadding: "280px",   // <-- MUST be a string
         beforeChange: handleSlideChange,
         initialSlide: mainVideoIndex,
         //
@@ -49,7 +59,7 @@ function VideoComponent() {
         const fetchVideoList = async () => {
             try {
 
-                const response = await fetch('http://localhost:8080/media/video');
+                const response = await fetch(`http://localhost:8080/media/${style}`);
                 const result = await response.json();
                 setVideoList(result);
             } catch (error) {
@@ -57,14 +67,15 @@ function VideoComponent() {
             }
         };
         fetchVideoList();
-        }, []); // Empty dependency array so it runs once when the component mounts
+        }, [style]); // Empty dependency array so it runs once when the component mounts
 
-        return (
-            <div>
+    return (
+        <div>
+            <div className="carousel-outer">
                 <div className="video-carousel">
                     <Slider ref={sliderRef} {...settings}>
-                        {videoList.length > 0 ?(
-                            videoList.map((video,index) => (
+                        {videoList.length > 0 ? (
+                            videoList.map((video, index) => (
                                 <div key={video.id} className="slide">
                                     <div className="videoFrame">
                                         <iframe
@@ -72,7 +83,9 @@ function VideoComponent() {
                                             src={video.url}
                                             frameBorder="0"
                                             allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"
-                                            referrerPolicy="strict-origin-when-cross-origin" title={video.title || "video"}></iframe>
+                                            referrerPolicy="strict-origin-when-cross-origin"
+                                            title={video.title || "video"}
+                                        />
                                     </div>
                                 </div>
                             ))
@@ -81,17 +94,23 @@ function VideoComponent() {
                         )}
                     </Slider>
                 </div>
-                <Slider>
+            </div>
+            <div className="thumbnail-strip">
+                <Slider {...thumbSettings}>
                     {videoList.length > 0 ? (
                         videoList.map((video, index) => (
                             <div key={video.id}>
-                                <div >
-                                    <img src={video.thumbnail_Url} alt="thumbnail" loading="lazy" onClick={() =>{
-                                        setMainVideoIndex(index)
+                                <img
+                                    src={video.thumbnail_Url}
+                                    alt="thumbnail"
+                                    loading="lazy"
+                                    onClick={() => {
+                                        setMainVideoIndex(index);
                                         if (sliderRef.current) {
-                                        sliderRef.current.slickGoTo(index);}
-                                    }}/>
-                                </div>
+                                            sliderRef.current.slickGoTo(index);
+                                        }
+                                    }}
+                                />
                             </div>
                         ))
                     ) : (
@@ -99,8 +118,8 @@ function VideoComponent() {
                     )}
                 </Slider>
             </div>
-
-        );
+        </div>
+    );
 
 }
 
