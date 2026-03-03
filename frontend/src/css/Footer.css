@@ -1,0 +1,23 @@
+.footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1em;
+    background-color: hsl(32.73deg 17.46% 87.65%);
+    color: #747B46;
+    position:absolute;
+    left:0;
+    bottom:0;
+    right:0;
+}
+
+.logo {
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+.main-menu a {
+    color: white;
+    text-decoration: none;
+    margin-left: 1em;
+}

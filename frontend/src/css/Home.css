@@ -1,0 +1,123 @@
+
+.home-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    background-color: hsl(32.73deg 17.46% 87.65%);
+}
+
+.flex-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between; /* Space between columns */
+    width: 100%;
+    max-width: 1200px; /* Optional: max width for large screens */
+    margin: 0 auto; /* Center the row */
+    gap: 40px; /* Space between the columns */
+}
+
+.column {
+    flex: 1; /* Allow both columns to share space */
+    padding: 0 20px; /* Padding inside each column */
+}
+
+.branding-title {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.branding-description, .column p {
+    font-size: 16px;
+    max-width: 500px; /* Limit width if needed */
+}
+.carousel-wrapper {
+    max-width: 900px;
+    width: 100%;
+    margin: 0 auto; /* Center it horizontally */
+    padding: 10px;
+    position: relative;
+}
+.video-carousel {
+    max-width: 900px;
+    margin: 40px auto; /* Center the carousel */
+    position: relative;
+    padding: 0 20px;
+    max-height: 80vh; /* Limit the carousel height to avoid overflow */
+    overflow: hidden; /* Hide anything outside */
+
+}
+.slick-slider {
+    position: relative;
+    width: 100%;
+}
+.video-carousel .slick-list {
+    overflow: visible;
+}
+.video-carousel .slick-center{
+    opacity: 1 !important;
+}
+.video-carousel .slick-slide {
+    padding: 0 12px; /* spacing between slides */
+    opacity: 0.4;
+    transition: opacity 300ms ease, transform 300ms ease;
+    box-sizing: border-box;
+}
+.videoFrame {
+    position: relative;
+    width: 100%;
+    padding-top: 56.25%; /* 16:9 */
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.videoFrame iframe {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+}
+.video-carousel .slick-arrow {
+    width: 44px !important; /* Force the size explicitly */
+    height: 44px !important;
+    background: rgba(0, 0, 0, 0.45) !important; /* Ensure the arrow background stays */
+    transform: translateY(-50%) !important; /* Ensure vertical alignment stays */
+    z-index: 1000 !important; /* Keep arrows on top */
+    font-size: 0 !important; /* Remove any default font sizing */
+    line-height: 0 !important; /* Eliminate any line height */
+}
+.video-carousel .carousel-arrow svg {
+    width: 44px !important;
+    height: 44px !important;
+    transform: none; /* Remove any unexpected transform scaling */
+}
+
+
+/* Ensure the buttons don’t inherit slick font settings */
+.video-carousel .slick-arrow::before {
+    color: white !important;
+    font-size: 24px !important;
+}
+
+.prev-arrow {
+    left: 10px; /* Keep arrows inside the left padding */
+}
+
+.next-arrow {
+    right: 10px; /* Keep arrows inside the right padding */
+}
+
+.carousel-arrow svg {
+    width: 24px; /* Ensure the SVG scales consistently */
+    height: 24px;
+}
+.video-carousel .slick-list {
+    overflow: visible;
+    position: relative;
+}
+
+.video-carousel .slick-slide {
+    padding: 0 12px; /* Keep spacing between slides */
+    box-sizing: border-box;
+    position: relative; /* Ensure it doesn't overlap arrows */
+}
