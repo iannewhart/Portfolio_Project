@@ -1,9 +1,11 @@
 package com.example.backend;
 
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class MediaService {
@@ -17,4 +19,18 @@ public class MediaService {
     }
     public List<MediaObject> GetAll(){
         return storage.findAll();   }
+
+    public MediaObject UpdateMediaByTitle(String title, MediaObject DTO) {
+        MediaObject temp = storage.findByTitle(title);
+        temp.setTitle(DTO.getTitle());
+        temp.setStyle(DTO.getStyle());
+        temp.setUrl(DTO.getUrl());
+        temp.setThumbnail_Url(DTO.getThumbnail_Url());
+        return storage.save(temp);
+    }
+
+    @Transactional
+    public void DeleteMediaByTitle(String title) {
+        storage.deleteByTitle(title);
+    }
 }

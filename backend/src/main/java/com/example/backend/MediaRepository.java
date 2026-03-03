@@ -7,5 +7,7 @@ import java.util.List;
 @Repository
 interface MediaRepository extends JpaRepository<MediaObject, Long> {
     List<MediaObject> findByStyle(String style);
+    MediaObject findByTitle(String title);
+    void deleteByTitle(String title);
 }
 

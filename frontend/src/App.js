@@ -7,6 +7,7 @@ import Contact from "./pages/Contact";
 import Footer from "./components/Footer";
 import SocialMedia from "./pages/SocialMedia";
 import Branding from "./pages/Branding";
+import Admin from "./pages/Admin";
 function App() {
   return (
       <div className="App">
@@ -18,6 +19,7 @@ function App() {
                   <Route path="/contact" element={<Contact />} />
                   <Route path="/socialmedia" element={<SocialMedia />} />
                   <Route path="/branding" element={<Branding />} />
+                  <Route path="/admin" element={<Admin />} />
               </Routes>
               <Footer></Footer>
           </>

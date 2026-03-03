@@ -25,6 +25,15 @@ public class MediaController {
             ){
         return service.PostMedia(DTO);
     }
+    @PutMapping("/{title}")
+    public MediaObject UpdateMedia(
+            @PathVariable String title, @RequestBody MediaObject DTO) {
+        return service.UpdateMediaByTitle(title,DTO);
+    }
+    @DeleteMapping("/delete")
+    public void DeleteMedia(@RequestParam String title) {
+        service.DeleteMediaByTitle(title);
+    }
 }
 
 

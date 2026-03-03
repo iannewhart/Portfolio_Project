@@ -1,0 +1,23 @@
+# Environment variables
+.env
+.env.local
+.env.production
+
+# Spring Boot
+backend/src/main/resources/application-dev.properties
+backend/target/
+backend/*.jar
+
+# React
+frontend/node_modules/
+frontend/build/
+frontend/.env
+
+# IDE
+.idea/workspace.xml
+.idea/tasks.xml
+*.iml
+
+# OS
+.DS_Store
+Thumbs.db

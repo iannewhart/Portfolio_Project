@@ -1,0 +1,112 @@
+.admin-container {
+    max-width: 900px;
+    width: 90%;        /* add this */
+    margin: 60px auto;
+    padding: 60px;     /* increase padding too */
+    background: hsl(32.73deg 17.46% 87.65%);
+    border-radius: 12px;
+    border: none;
+}
+
+.admin-container h2 {
+    margin-bottom: 24px;
+    font-size: 22px;
+    font-weight: bold;
+    color: #4a5530;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 16px;
+}
+
+.form-group label {
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 6px;
+    color: #333;
+}
+
+.form-group input,
+.form-group select {
+    padding: 10px 12px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 14px;
+    outline: none;
+    transition: border-color 0.2s ease;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+    border-color: #4a5530;
+}
+.form-group select {
+    background-color: white;
+    color: #333;
+    cursor: pointer;
+}
+
+.form-group select option {
+    background-color: white;
+    color: #333;
+}
+.admin-submit {
+    width: 100%;
+    padding: 12px;
+    background: #4a5530;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 15px;
+    cursor: pointer;
+    margin-top: 8px;
+    transition: background 0.2s ease;
+}
+
+.admin-submit:hover {
+    background: #4a5530
+}
+.admin-video-list {
+    margin-top: 40px;
+}
+
+.admin-video-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px;
+    background: white;
+    border-radius: 8px;
+    margin-bottom: 12px;
+}
+
+.admin-video-info p {
+    margin: 0;
+    font-size: 14px;
+    color: #333;
+}
+
+.admin-video-actions {
+    display: flex;
+    gap: 8px;
+}
+
+.admin-edit-btn {
+    padding: 8px 16px;
+    background: #4a5530;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.admin-delete-btn {
+    padding: 8px 16px;
+    background: #c0392b;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
