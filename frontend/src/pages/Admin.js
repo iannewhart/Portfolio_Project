@@ -18,7 +18,7 @@ function Admin(){
     };
 
     const handleDelete = async (title) => {
-        await fetch(`http://localhost:8080/media/delete?title=${encodeURIComponent(title)}`, {
+        await fetch(`${process.env.REACT_APP_API_URL}/media/delete?title=${encodeURIComponent(title)}`, {
             method: 'DELETE'
         });
         setVideoList(videoList.filter(v => v.title !== title));
@@ -26,7 +26,7 @@ function Admin(){
 
     const submitMedia = async () => {
         if (editingTitle) {
-            const response = await fetch(`http://localhost:8080/media/${encodeURIComponent(editingTitle)}`, {
+            const response = await fetch(`${process.env.REACT_APP_API_URL}/media/${encodeURIComponent(editingTitle)}`, {
                 method: 'PUT',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ title, style, url, thumbnail_Url: thumbnailUrl }),
@@ -41,7 +41,7 @@ function Admin(){
         } else {
             try {
                 const newVideo = { title, style, url, thumbnail_Url: thumbnailUrl };
-                const response = await fetch(`http://localhost:8080/media/post`, {
+                const response = await fetch(`${process.env.REACT_APP_API_URL}/media/post`, {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify(newVideo),
@@ -62,7 +62,7 @@ function Admin(){
     useEffect(() => {
         const fetchVideoList = async () => {
             try {
-                const response = await fetch(`http://localhost:8080/media/media/all`);
+                const response = await fetch(`${process.env.REACT_APP_API_URL}/media/media/all`);
                 const result = await response.json();
                 setVideoList(result);
             } catch (error) {

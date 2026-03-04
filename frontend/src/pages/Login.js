@@ -9,7 +9,7 @@ function Login(){
     const navigate = useNavigate();
     const submitLogin = async () => {
         try {
-            const response = await fetch(`http://localhost:8080/auth/login?username=${username}&password=${password}`, {
+            const response = await fetch(`${process.env.REACT_APP_API_URL}/auth/login?username=${username}&password=${password}`, {
                 method: 'POST'
             });
             if (!response.ok) {

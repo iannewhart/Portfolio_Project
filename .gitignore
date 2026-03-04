@@ -1,7 +1,6 @@
 # Environment variables
 .env
 .env.local
-.env.production
 
 # Spring Boot
 backend/src/main/resources/application-dev.properties
@@ -11,7 +10,7 @@ backend/*.jar
 # React
 frontend/node_modules/
 frontend/build/
-frontend/.env
+frontend/.env.production
 
 # IDE
 .idea/workspace.xml

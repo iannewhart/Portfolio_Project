@@ -59,7 +59,7 @@ function VideoComponent({ style }) {
         const fetchVideoList = async () => {
             try {
 
-                const response = await fetch(`http://localhost:8080/media/${style}`);
+                const response = await fetch(`${process.env.REACT_APP_API_URL}/media/${style}`);
                 const result = await response.json();
                 setVideoList(result);
             } catch (error) {
