@@ -1,0 +1,81 @@
+.login-container {
+    max-width: 900px;
+    width: 90%;        /* add this */
+    margin: 60px auto;
+    padding: 60px;     /* increase padding too */
+    background: hsl(32.73deg 17.46% 87.65%);
+    border-radius: 12px;
+    border: none;
+}
+.form-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 16px;
+}
+
+.form-group label {
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 6px;
+    color: #333;
+}
+
+.form-group input,
+.form-group select {
+    padding: 10px 12px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 14px;
+    outline: none;
+    transition: border-color 0.2s ease;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+    border-color: #4a5530;
+}
+.form-group select {
+    background-color: white;
+    color: #333;
+    cursor: pointer;
+}
+
+.form-group select option {
+    background-color: white;
+    color: #333;
+}
+.login-submit {
+    width: 100%;
+    padding: 12px;
+    background: #4a5530;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 15px;
+    cursor: pointer;
+    margin-top: 8px;
+    transition: background 0.2s ease;
+}
+
+.login-submit:hover {
+    background: #4a5530
+}
+.password-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.password-wrapper input {
+    width: 100%;
+}
+
+.password-wrapper button {
+    position: absolute;
+    right: 10px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #666;
+    font-size: 13px;
+}

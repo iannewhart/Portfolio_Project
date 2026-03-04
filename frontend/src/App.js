@@ -8,6 +8,8 @@ import Footer from "./components/Footer";
 import SocialMedia from "./pages/SocialMedia";
 import Branding from "./pages/Branding";
 import Admin from "./pages/Admin";
+import Login from './pages/Login';
+import PrivateRoute from './PrivateRoute';
 function App() {
   return (
       <div className="App">
@@ -19,7 +21,12 @@ function App() {
                   <Route path="/contact" element={<Contact />} />
                   <Route path="/socialmedia" element={<SocialMedia />} />
                   <Route path="/branding" element={<Branding />} />
-                  <Route path="/admin" element={<Admin />} />
+                  <Route path="/admin" element={
+                      <PrivateRoute>
+                          <Admin />
+                      </PrivateRoute>
+                  } />
+                  <Route path="/login" element={<Login />} />
               </Routes>
               <Footer></Footer>
           </>
