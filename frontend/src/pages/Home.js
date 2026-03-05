@@ -1,6 +1,6 @@
 import '../css/Home.css'
 import {useNavigate} from "react-router-dom";
-
+import ContactForm from "../components/ContactForm";
 function Home() {
     const navigate = useNavigate();
 
@@ -37,7 +37,9 @@ function Home() {
                         </div>
                     </div>
                 </div>
+
             </div>
+            <ContactForm></ContactForm>
         </div>
     );
 }

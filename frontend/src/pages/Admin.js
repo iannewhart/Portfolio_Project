@@ -8,7 +8,7 @@ function Admin(){
     const [url, setUrl] = useState('');
     const [thumbnailUrl, setThumbnailUrl] = useState('');
     const [editingTitle, setEditingTitle] = useState(null);
-
+    const token = localStorage.getItem('token');
     const handleEdit = (video) => {
         setEditingTitle(video.title);
         setTitle(video.title);
@@ -19,7 +19,8 @@ function Admin(){
 
     const handleDelete = async (title) => {
         await fetch(`${process.env.REACT_APP_API_URL}/media/delete?title=${encodeURIComponent(title)}`, {
-            method: 'DELETE'
+            method: 'DELETE',
+            headers: { 'Authorization': `Bearer ${token}` }
         });
         setVideoList(videoList.filter(v => v.title !== title));
     };
@@ -28,7 +29,7 @@ function Admin(){
         if (editingTitle) {
             const response = await fetch(`${process.env.REACT_APP_API_URL}/media/${encodeURIComponent(editingTitle)}`, {
                 method: 'PUT',
-                headers: { 'Content-Type': 'application/json' },
+                headers: {'Content-Type': 'application/json' ,'Authorization': `Bearer ${token}`},
                 body: JSON.stringify({ title, style, url, thumbnail_Url: thumbnailUrl }),
             });
             const result = await response.json();
@@ -43,7 +44,7 @@ function Admin(){
                 const newVideo = { title, style, url, thumbnail_Url: thumbnailUrl };
                 const response = await fetch(`${process.env.REACT_APP_API_URL}/media/post`, {
                     method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
+                    headers: {'Content-Type': 'application/json' , 'Authorization': `Bearer ${token}`},
                     body: JSON.stringify(newVideo),
                 });
                 if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
