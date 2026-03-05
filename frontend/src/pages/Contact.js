@@ -14,9 +14,6 @@ function Contact() {
             <h4>
                 zoey@sunvio.video
             </h4>
-            <h4>
-                812-650-2995
-            </h4>
         </div>
     );
 }
