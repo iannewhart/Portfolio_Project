@@ -22,15 +22,7 @@
     padding: 0 20px;
 }
 
-.branding-title {
-    font-size: 24px;
-    font-weight: bold;
-}
 
-.branding-description, .column p {
-    font-size: 16px;
-    max-width: 500px;
-}
 
 /* ── Main video carousel ── */
 .video-carousel {

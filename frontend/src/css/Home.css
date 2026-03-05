@@ -71,14 +71,15 @@
 }
 
 .branding-title {
-    font-size: 24px;
+    color: #747B46;
+    font-size: 48px;
     font-weight: bold;
 }
 
 .branding-description {
     font-size: 16px;
     max-width: 500px;
-
+    color: #747B46;
 }
 
 /* ── Category cards ── */
